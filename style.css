@@ -1,10 +1,120 @@
-*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}body{background:#0f172a;color:#fff;overflow:hidden}header{position:absolute;top:20px;width:100%;text-align:center;z-index:10}.slider{height:100vh;position:relative}
-.slide{position:absolute;width:100%;height:100%;opacity:0;transition:1s}.active{opacity:1}
-.slide img{   width:100%;
-    height:100%;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Poppins,sans-serif;
+}
+
+body{
+    background:#0f172a;
+    color:#fff;
+    overflow-x:hidden;
+    overflow-y:auto;
+}
+
+header{
+    position:absolute;
+    top:20px;
+    width:100%;
+    text-align:center;
+    z-index:10;
+    padding:0 15px;
+}
+
+.slider{
+    position:relative;
+    min-height:100vh;
+    overflow:hidden;
+}
+
+.slide{
+    position:absolute;
+    inset:0;
+    opacity:0;
+    transition:1s;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.slide.active{
+    opacity:1;
+    z-index:2;
+}
+
+.slide img{
+    width:100%;
+    height:100vh;
     object-fit:contain;
-    background:#111;}
-.texto{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.5);padding:20px;border-radius:20px;text-align:center}
-button{position:absolute;top:50%;transform:translateY(-50%);border:none;background:rgba(255,255,255,.2);color:#fff;width:50px;height:50px;border-radius:50%;font-size:30px}
-.prev{left:15px}
-.next{right:15px}
+    background:#111;
+    flex-shrink:0;
+}
+
+.texto{
+    position:relative;
+    width:90%;
+    max-width:700px;
+    margin:-120px auto 40px;
+    background:rgba(0,0,0,.55);
+    backdrop-filter:blur(10px);
+    padding:20px;
+    border-radius:20px;
+    text-align:center;
+    z-index:5;
+}
+
+.texto h2{
+    margin-bottom:10px;
+}
+
+.texto p{
+    line-height:1.6;
+}
+
+button{
+    position:fixed;
+    top:50%;
+    transform:translateY(-50%);
+    border:none;
+    background:rgba(255,255,255,.2);
+    color:#fff;
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    font-size:30px;
+    cursor:pointer;
+    z-index:100;
+}
+
+.prev{
+    left:15px;
+}
+
+.next{
+    right:15px;
+}
+
+@media(max-width:768px){
+
+    header{
+        top:10px;
+    }
+
+    .slide img{
+        height:75vh;
+    }
+
+    .texto{
+        width:94%;
+        margin:-40px auto 30px;
+        padding:18px;
+    }
+
+    button{
+        width:42px;
+        height:42px;
+        font-size:22px;
+    }
+
+}
